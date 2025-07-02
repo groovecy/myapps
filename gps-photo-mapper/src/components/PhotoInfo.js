@@ -1,7 +1,7 @@
 import React from 'react';
 import './PhotoInfo.css';
 
-const PhotoInfo = ({ photos }) => {
+const PhotoInfo = ({ photos, onPhotoClick }) => {
   if (!photos || photos.length === 0) return null;
 
   return (
@@ -11,7 +11,11 @@ const PhotoInfo = ({ photos }) => {
       {photos.length === 1 ? (
         <div className="single-photo-info">
           <div className="photo-preview">
-            <img src={photos[0].imageSrc} alt={photos[0].name} />
+            <img 
+              src={photos[0].imageSrc} 
+              alt={photos[0].name}
+              onClick={() => onPhotoClick(photos[0])}
+            />
           </div>
           <div className="info-grid">
             <div className="info-item">
@@ -42,7 +46,11 @@ const PhotoInfo = ({ photos }) => {
             {photos.map((photo, index) => (
               <div key={photo.id} className="photo-card">
                 <div className="photo-thumbnail">
-                  <img src={photo.imageSrc} alt={photo.name} />
+                  <img 
+                    src={photo.imageSrc} 
+                    alt={photo.name}
+                    onClick={() => onPhotoClick(photo)}
+                  />
                 </div>
                 <div className="photo-details">
                   <h4>{photo.name}</h4>
