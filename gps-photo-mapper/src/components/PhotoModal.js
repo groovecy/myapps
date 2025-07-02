@@ -1,9 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './PhotoModal.css';
 
 const PhotoModal = ({ photo, isOpen, onClose }) => {
-  if (!isOpen || !photo) return null;
-
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
       onClose();
@@ -16,10 +14,13 @@ const PhotoModal = ({ photo, isOpen, onClose }) => {
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isOpen) {
       document.addEventListener('keydown', handleKeyDown);
       document.body.style.overflow = 'hidden';
+    } else {
+      document.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'unset';
     }
 
     return () => {
@@ -27,6 +28,8 @@ const PhotoModal = ({ photo, isOpen, onClose }) => {
       document.body.style.overflow = 'unset';
     };
   }, [isOpen]);
+
+  if (!isOpen || !photo) return null;
 
   return (
     <div className="photo-modal-backdrop" onClick={handleBackdropClick}>
