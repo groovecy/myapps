@@ -1,0 +1,133 @@
+.photo-info {
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  border-left: 5px solid #4facfe;
+}
+
+.photo-info h2 {
+  color: #333;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.single-photo-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo-preview {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.photo-preview img {
+  max-width: 300px;
+  max-height: 200px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  object-fit: cover;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 800px;
+}
+
+.info-item {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.info-item h3 {
+  color: #4facfe;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.info-item p {
+  color: #333;
+  font-weight: 500;
+  word-break: break-all;
+}
+
+.multiple-photos-info {
+  width: 100%;
+}
+
+.photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.photo-card {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease;
+}
+
+.photo-card:hover {
+  transform: translateY(-2px);
+}
+
+.photo-thumbnail {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.photo-thumbnail img {
+  width: 100%;
+  max-height: 150px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.photo-details h4 {
+  color: #333;
+  margin-bottom: 10px;
+  font-size: 1rem;
+  word-break: break-all;
+}
+
+.photo-details p {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+@media (max-width: 768px) {
+  .photo-info {
+    padding: 15px;
+  }
+  
+  .info-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .photos-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .photo-preview img {
+    max-width: 250px;
+    max-height: 150px;
+  }
+  
+  .info-item {
+    padding: 15px;
+  }
+}
