@@ -5,6 +5,7 @@ import MapDisplay from './components/MapDisplay';
 import PhotoInfo from './components/PhotoInfo';
 import LoadingSpinner from './components/LoadingSpinner';
 import ErrorMessage from './components/ErrorMessage';
+import PhotoModal from './components/PhotoModal';
 import './App.css';
 
 function App() {
@@ -12,6 +13,8 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [showMap, setShowMap] = useState(false);
+  const [selectedPhoto, setSelectedPhoto] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const fileInputRef = useRef();
 
   const convertDMSToDD = (dms, ref) => {
@@ -102,10 +105,22 @@ function App() {
     }
   };
 
+  const handlePhotoClick = (photo) => {
+    setSelectedPhoto(photo);
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+    setSelectedPhoto(null);
+  };
+
   const resetApp = () => {
     setPhotos([]);
     setError(null);
     setShowMap(false);
+    setSelectedPhoto(null);
+    setIsModalOpen(false);
     if (fileInputRef.current) {
       fileInputRef.current.value = '';
     }
@@ -132,13 +147,19 @@ function App() {
 
         {showMap && photos.length > 0 && (
           <div className="map-section">
-            <PhotoInfo photos={photos} />
+            <PhotoInfo photos={photos} onPhotoClick={handlePhotoClick} />
             <MapDisplay photos={photos} />
             <button className="reset-btn" onClick={resetApp}>
               다른 사진 선택
             </button>
           </div>
         )}
+
+        <PhotoModal 
+          photo={selectedPhoto}
+          isOpen={isModalOpen}
+          onClose={handleModalClose}
+        />
       </div>
     </div>
   );
