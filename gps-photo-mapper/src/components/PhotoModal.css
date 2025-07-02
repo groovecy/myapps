@@ -1,0 +1,163 @@
+.photo-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.photo-modal {
+  background: #ffffff;
+  border-radius: 12px;
+  max-width: 90vw;
+  max-height: 90vh;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+}
+
+.photo-modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+}
+
+.photo-modal-close:hover {
+  background: rgba(0, 0, 0, 0.8);
+}
+
+.photo-modal-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.photo-modal-image {
+  background: #f8f9fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+.photo-modal-image img {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 8px 8px 0 0;
+}
+
+.photo-modal-info {
+  padding: 24px;
+  background: white;
+}
+
+.photo-modal-info h3 {
+  color: #2c3e50;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  word-break: break-all;
+}
+
+.photo-modal-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.detail-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 12px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.detail-item:last-child {
+  border-bottom: none;
+}
+
+.detail-label {
+  color: #6c757d;
+  font-size: 0.9rem;
+  font-weight: 500;
+  min-width: 80px;
+}
+
+.detail-value {
+  color: #495057;
+  font-size: 0.9rem;
+  text-align: right;
+  word-break: break-all;
+  flex: 1;
+  margin-left: 16px;
+}
+
+@media (max-width: 768px) {
+  .photo-modal {
+    max-width: 95vw;
+    max-height: 95vh;
+  }
+  
+  .photo-modal-content {
+    flex-direction: column;
+  }
+  
+  .photo-modal-image img {
+    max-height: 50vh;
+  }
+  
+  .photo-modal-info {
+    padding: 20px;
+  }
+  
+  .detail-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .detail-value {
+    text-align: left;
+    margin-left: 0;
+  }
+}
+
+@media (min-width: 769px) {
+  .photo-modal {
+    max-width: 800px;
+  }
+  
+  .photo-modal-content {
+    flex-direction: row;
+  }
+  
+  .photo-modal-image {
+    flex: 2;
+  }
+  
+  .photo-modal-info {
+    flex: 1;
+    min-width: 300px;
+  }
+}

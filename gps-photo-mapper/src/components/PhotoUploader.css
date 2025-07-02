@@ -1,71 +1,52 @@
 .upload-section {
-  padding: 40px;
+  padding: 48px 32px;
   text-align: center;
 }
 
 .upload-area {
-  border: 3px dashed #4facfe;
-  border-radius: 15px;
-  padding: 60px 20px;
-  background: linear-gradient(135deg, #f8faff 0%, #f0f7ff 100%);
+  border: 2px dashed #bdc3c7;
+  border-radius: 12px;
+  padding: 64px 32px;
+  background: #f8f9fa;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   position: relative;
-  overflow: hidden;
 }
 
 .upload-area:hover {
-  border-color: #667eea;
-  background: linear-gradient(135deg, #f0f7ff 0%, #e8f4ff 100%);
+  border-color: #7f8c8d;
+  background: #f1f2f6;
   transform: translateY(-2px);
 }
 
-.upload-area::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg, transparent, rgba(79, 172, 254, 0.1), transparent);
-  transform: rotate(45deg);
-  transition: all 0.6s ease;
-  opacity: 0;
-}
-
-.upload-area:hover::before {
-  opacity: 1;
-  animation: shimmer 1.5s ease-in-out infinite;
-}
-
-@keyframes shimmer {
-  0% { transform: translateX(-100%) translateY(-100%) rotate(45deg); }
-  100% { transform: translateX(100%) translateY(100%) rotate(45deg); }
-}
-
 .upload-icon {
-  font-size: 4rem;
-  color: #4facfe;
+  font-size: 3.5rem;
+  color: #7f8c8d;
   margin-bottom: 20px;
   display: block;
 }
 
 .upload-text {
-  font-size: 1.3rem;
-  color: #333;
-  margin-bottom: 10px;
-  font-weight: 500;
+  font-size: 1.2rem;
+  color: #2c3e50;
+  margin-bottom: 12px;
+  font-weight: 600;
 }
 
 .upload-subtext {
-  color: #666;
-  font-size: 1rem;
-  margin-bottom: 5px;
+  color: #7f8c8d;
+  font-size: 0.95rem;
+  margin-bottom: 8px;
+  font-weight: 400;
 }
 
 @media (max-width: 768px) {
+  .upload-section {
+    padding: 32px 24px;
+  }
+  
   .upload-area {
-    padding: 40px 15px;
+    padding: 48px 24px;
   }
   
   .upload-icon {
